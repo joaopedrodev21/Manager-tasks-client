@@ -74,7 +74,7 @@ export function ProfilePage() {
               <div className="dashboard-column" style={{ gap: "24px" }}>
                 {/* ── User Info Card ── */}
                 <div className="dashboard-card" style={{ padding: "32px" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "20px", marginBottom: "28px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "20px", marginBottom: "28px", flexWrap: "wrap" }}>
                     <div
                       style={{
                         width: "72px",
@@ -93,14 +93,14 @@ export function ProfilePage() {
                     >
                       {initials}
                     </div>
-                    <div>
-                      <h2 style={{ margin: 0, fontSize: "1.25rem", fontWeight: 800, color: "var(--text-primary)" }}>
-                        {user?.name}
-                      </h2>
-                      <p style={{ margin: "4px 0 0", color: "var(--text-muted)", fontSize: "0.85rem" }}>
-                        {user?.email}
-                      </p>
-                    </div>
+                     <div style={{ minWidth: 0, flex: 1 }}>
+                       <h2 style={{ margin: 0, fontSize: "1.25rem", fontWeight: 800, color: "var(--text-primary)", wordBreak: "break-word" }}>
+                         {user?.name}
+                       </h2>
+                       <p style={{ margin: "4px 0 0", color: "var(--text-muted)", fontSize: "0.85rem", wordBreak: "break-word" }}>
+                         {user?.email}
+                       </p>
+                     </div>
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>

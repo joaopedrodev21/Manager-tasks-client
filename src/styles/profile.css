@@ -36,7 +36,10 @@
   font-size: 0.88rem;
   font-weight: 700;
   color: var(--text-secondary);
-  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  min-width: 0;
 }
 
 /* Stats Grid */
@@ -140,6 +143,23 @@
   }
 }
 
+@media (max-width: 640px) {
+  .profile-info-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .profile-info-value {
+    width: 100%;
+    padding-left: 48px;
+    margin-top: -4px;
+  }
+
+  .profile-theme-card > div {
+    flex-wrap: wrap;
+  }
+}
+
 @media (max-width: 480px) {
   .profile-info-icon {
     width: 30px;
@@ -186,5 +206,6 @@
 
   .profile-theme-card > div {
     flex-wrap: wrap;
+    gap: 12px;
   }
 }
