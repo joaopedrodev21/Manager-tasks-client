@@ -33,75 +33,73 @@ export function RegisterPage() {
         }
     }
     return (
-        <div className="auth-page min-h-screen px-4 py-10">
-            <div className="auth-grid mx-auto w-full px-4">
-                <form onSubmit={handleSubmit} className="auth-card">
-                    <div className="auth-card__header">
-                        <h2 className="auth-card__title">Registrar</h2>
-                        <p className="auth-card__subtitle">
-                            Crie sua conta para começar a gerenciar tarefas imediatamente.
-                        </p>
+        <div className="auth-page min-h-screen flex items-center justify-center px-4 py-10">
+            <form onSubmit={handleSubmit} className="auth-card" style={{ maxWidth: "440px" }}>
+                <div className="auth-card__header">
+                    <h2 className="auth-card__title">Registrar</h2>
+                    <p className="auth-card__subtitle">
+                        Crie sua conta para começar a gerenciar tarefas imediatamente.
+                    </p>
+                </div>
+
+                {error && <div className="auth-error">{error}</div>}
+
+                <div className="auth-form">
+                    <div className="auth-field">
+                        <label>Nome</label>
+                        <input
+                            className="auth-input"
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
                     </div>
 
-                    {error && <div className="auth-error">{error}</div>}
+                    <div className="auth-field">
+                        <label>Email</label>
+                        <input
+                            className="auth-input"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
 
-                    <div className="auth-form">
-                        <div className="auth-field">
-                            <label>Nome</label>
+                    <div className="auth-field">
+                        <label>Senha</label>
+                        <div className="auth-password-wrapper">
                             <input
                                 className="auth-input"
-                                type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 required
                             />
+                            <button
+                                type="button"
+                                className="auth-password-toggle"
+                                onClick={() => setShowPassword(!showPassword)}
+                                tabIndex={-1}
+                                aria-label={showPassword ? "Esconder senha" : "Mostrar senha"}
+                            >
+                                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                            </button>
                         </div>
-
-                        <div className="auth-field">
-                            <label>Email</label>
-                            <input
-                                className="auth-input"
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                        </div>
-
-                        <div className="auth-field">
-                            <label>Senha</label>
-                            <div className="auth-password-wrapper">
-                                <input
-                                    className="auth-input"
-                                    type={showPassword ? "text" : "password"}
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    required
-                                />
-                                <button
-                                    type="button"
-                                    className="auth-password-toggle"
-                                    onClick={() => setShowPassword(!showPassword)}
-                                    tabIndex={-1}
-                                    aria-label={showPassword ? "Esconder senha" : "Mostrar senha"}
-                                >
-                                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                                </button>
-                            </div>
-                        </div>
-
-                        <button type="submit" className="auth-button">
-                            Registrar
-                        </button>
                     </div>
 
-                    <div className="auth-card__footer">
-                        <p className="auth-footer">
-                            Já tem conta? <Link to="/login" className="auth-link">Entre aqui</Link>
-                        </p>
-                    </div>
-                </form>
-            </div>
+                    <button type="submit" className="auth-button">
+                        Registrar
+                    </button>
+                </div>
+
+                <div className="auth-card__footer">
+                    <p className="auth-footer">
+                        Já tem conta? <Link to="/login" className="auth-link">Entre aqui</Link>
+                    </p>
+                </div>
+            </form>
         </div>
     );
 }
