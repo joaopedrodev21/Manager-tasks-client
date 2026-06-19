@@ -3,7 +3,7 @@ import { Sidebar } from "../components/Sidebar";
 import { MobileBottomNav } from "../components/MobileBottomNav";
 import { useTasks } from "../hooks/useTasks";
 import { formatDate } from "../utils/formatDate";
-import { ChevronLeft, ChevronRight, Calendar, AlertTriangle, ArrowUp, ArrowDown, Clock, CheckCircle2, Circle } from "lucide-react";
+import { ChevronLeft, ChevronRight, Calendar, AlertTriangle, ArrowUp, ArrowDown, Clock, CheckCircle2 } from "lucide-react";
 import "../styles/dashboard-layout.css";
 import "../styles/calendar.css";
 
@@ -219,7 +219,7 @@ export function CalendarPage() {
                             {task.priority === "HIGH" ? <><ArrowUp size={11} /> Alta</> : <><ArrowDown size={11} /> Baixa</>}
                           </span>
                           <span style={{ flex: 1, color: task.done ? "var(--text-dim)" : isOverdue ? "var(--danger-text)" : "var(--text-secondary)", textDecoration: task.done ? "line-through" : "none", display: "flex", alignItems: "center", gap: "6px" }}>
-                            {task.done ? <CheckCircle2 size={14} /> : <Circle size={14} />}
+                            {task.done && <CheckCircle2 size={14} />}
                             {task.title}
                           </span>
                           <span style={{ color: isOverdue ? "var(--danger-text-hover)" : "var(--text-dim)", fontSize: "0.82rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "4px" }}>

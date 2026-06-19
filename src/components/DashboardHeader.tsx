@@ -45,7 +45,7 @@ export function DashboardHeader({ user, tasks }: DashboardHeaderProps) {
       <div className="dashboard-header__top">
         <div className="dashboard-header__main">
           <span className="dashboard-header__badge">Painel principal</span>
-          <h1 className="dashboard-header__title">Bem-vindo, {user?.name}!</h1>
+          <h1 className="dashboard-header__title">Bem-vindo(a), {user?.name}!</h1>
           <p className="dashboard-header__description">Organize e acompanhe suas tarefas com mais foco usando um painel limpo e intuitivo.</p>
         </div>
       </div>
