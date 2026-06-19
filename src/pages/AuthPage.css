@@ -3,6 +3,10 @@
    ============================================= */
 
 .auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
   background: radial-gradient(ellipse at top left, rgba(59, 130, 246, 0.12) 0%, rgba(4, 15, 45, 1) 50%);
   color: #e2e8f0;
 }
@@ -363,9 +367,7 @@
 
 @media (min-width: 768px) {
   .auth-grid {
-    flex-direction: row;
     max-width: 900px;
-    align-items: flex-start;
   }
 
   .auth-panel {

@@ -29,18 +29,8 @@ export function ForgotPasswordPage() {
     }
 
     return (
-        <div className="auth-page min-h-screen px-4 py-10">
-            <div className="auth-grid mx-auto w-full px-4">
-                <section className="auth-panel">
-                    <span className="auth-panel__badge">Organize.Me</span>
-                    <h1 className="auth-panel__title">
-                        Recupere o acesso à sua conta.
-                    </h1>
-                    <p className="auth-panel__copy">
-                        Enviaremos um link de redefinição de senha para o seu email cadastrado.
-                    </p>
-                </section>
-
+        <div className="auth-page min-h-screen px-4">
+            <div className="auth-grid w-full">
                 <form onSubmit={handleSubmit} className="auth-card">
                     <div className="auth-card__content">
                         <h2 className="auth-card__title">Esqueceu sua senha?</h2>
