@@ -12,7 +12,7 @@ export interface AuthContextType {
     logout: () => void;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 export const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 function getInitialState() {
@@ -52,17 +52,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         }
     }, [state.user]);
 
-    // Chama initialize apenas se necessário
     if (state.token && !state.user && loading) {
         initialize();
     }
 
     async function login(email: string, password: string) {
-        const response = await authService.login(email, password);
-        setState({ token: response.token, user: response.user });
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('user', JSON.stringify(response.user));
-        setLoading(false);
+        try {
+            const response = await authService.login(email, password);
+            setState({ token: response.token, user: response.user });
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('user', JSON.stringify(response.user));
+        } finally {
+            setLoading(false);
+        }
     }
 
     async function register(name: string, email: string, password: string) {
