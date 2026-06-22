@@ -2,6 +2,7 @@ import { Sidebar } from "../components/Sidebar";
 import { MobileBottomNav } from "../components/MobileBottomNav";
 import { DashboardHeader } from "../components/DashboardHeader";
 import { TaskSection } from "../components/TaskSection";
+import { Modal } from "../components/Modal";
 import { TaskForm } from "../components/TaskForm";
 import { TaskFilters, type PriorityFilter, type StatusTab } from "../components/TaskFilters";
 import type { UpdateTaskData } from "../types";
@@ -78,7 +79,7 @@ export function DashboardPage() {
                 type="button"
               >
                 <Plus size={16} strokeWidth={2} />
-                {showForm ? 'Fechar' : 'Nova tarefa'}
+                Nova tarefa
               </button>
             </div>
 
@@ -101,11 +102,9 @@ export function DashboardPage() {
                     counts={counts}
                   />
 
-                  {showForm && (
-                    <div className="task-form">
-                      <TaskForm onSubmit={createTask} onClose={() => setShowForm(false)} />
-                    </div>
-                  )}
+                  <Modal isOpen={showForm} onClose={() => setShowForm(false)}>
+                    <TaskForm onSubmit={createTask} onClose={() => setShowForm(false)} />
+                  </Modal>
 
                   {loading && <p className="dashboard-loading">Carregando tarefas...</p>}
                   {error && (
